@@ -56,31 +56,53 @@ int main(){
     int rango_numero_inf;
     int rango_numero_sup;
     int cantidad_intentos;
-    
+    int adivina_numero;
+    int intento = 0;
+
     cout << "Ingrese los rangos de numeros para el juego\n\n";
 
     do
     {
         cout << "Ingrese rango inferior: ";
         cin >> rango_numero_inf;
+        cout << "\n";
     } while (rango_numero_inf <= 0);
 
     do
     {
         cout << "Ingrese rango superior: ";
         cin >> rango_numero_sup;
+        cout << "\n";
     } while (rango_numero_sup <= rango_numero_inf);
 
     do
     {
         cout << "Ingrese la cantidad de intentos maximos: ";
         cin >> cantidad_intentos;
+        cout << "\n";
     } while (cantidad_intentos <= 0);
 
     int numero_random = rand() % (rango_numero_sup - rango_numero_inf + 1) + rango_numero_inf;
-    /* 
-    cout << "El numero random es: " << numero_random; 
+    /*
+    cout << "El numero random es: " << numero_random << "\n";
     */
    
+    for (cantidad_intentos; cantidad_intentos > intento; cantidad_intentos -= 1)
+    {
+        do
+        {
+            cout << "Adivine el numero random entre " << rango_numero_inf << " y " << rango_numero_sup << "no se salga del rango: ";
+            cin >> adivina_numero;
+        } while (adivina_numero < rango_numero_inf || adivina_numero > rango_numero_sup);
+
+        if(adivina_numero == numero_random){
+            cout << "Usted adivino el numero random: " << numero_random << "\n";
+            break;
+        }else{
+            cout << "Usted no adivino el numero random.\n";
+            cout << "Le quedan " << cantidad_intentos - 1 << " intentos.\n\n";
+        }
+    }
+
     return 0;
 }
