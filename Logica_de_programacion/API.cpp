@@ -44,23 +44,43 @@ Consigna B
 
 */
 
+/* Cargamos las librerias*/
 #include <iostream>
-
+#include <random>
 using namespace std;
 
+
 int main(){
+
+    /* Decalro tipo de varaibles*/
     int rango_numero_inf;
     int rango_numero_sup;
+    int cantidad_intentos;
+    
+    cout << "Ingrese los rangos de numeros para el juego\n\n";
 
-    cout << "Ingrese el rango de numeros para el juego\n";
+    do
+    {
+        cout << "Ingrese rango inferior: ";
+        cin >> rango_numero_inf;
+    } while (rango_numero_inf <= 0);
 
-    cout << "Ingrese rango inferior: ";
-    cin >> rango_numero_inf;
+    do
+    {
+        cout << "Ingrese rango superior: ";
+        cin >> rango_numero_sup;
+    } while (rango_numero_sup <= rango_numero_inf);
 
-    cout << "Ingrese rango superior: ";
-    cin >> rango_numero_sup;
+    do
+    {
+        cout << "Ingrese la cantidad de intentos maximos: ";
+        cin >> cantidad_intentos;
+    } while (cantidad_intentos <= 0);
 
+    int numero_random = rand() % (rango_numero_sup - rango_numero_inf + 1) + rango_numero_inf;
+    /* 
+    cout << "El numero random es: " << numero_random; 
+    */
+   
     return 0;
 }
-
-
