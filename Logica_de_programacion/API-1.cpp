@@ -91,7 +91,7 @@ int main(){
     {
         do
         {
-            cout << "Adivine el numero random entre " << rango_numero_inf << " y " << rango_numero_sup << "no se salga del rango: ";
+            cout << "Adivine el numero random entre " << rango_numero_inf << " y " << rango_numero_sup << " dentro del rango: ";
             cin >> adivina_numero;
         } while (adivina_numero < rango_numero_inf || adivina_numero > rango_numero_sup);
 
