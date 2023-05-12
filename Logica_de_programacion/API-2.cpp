@@ -32,9 +32,11 @@ Te acaba de contratar una empresa para desarrollar un juego de adivinanzas de n�
     ● El programa debe validar los rangos inferiores y superiores ingresados, como así también la cantidad de intentos.
     ● El programa debe indicar si el número ingresado por el usuario es mayor o menor que el número generado.
     ● El programa debe validar si el número ingresado se encuentra dentro de los rangos establecidos.
-    ● El programa debe indicar al usuario cuántos intentos lleva y cuántos intentos le quedan.Consigna B
-    ● Instalar el software P-seint. Accede al link de descarga haciendo clic acá.
+    ● El programa debe indicar al usuario cuántos intentos lleva y cuántos intentos le quedan.
+    
+    Consigna B
 
+    ● Instalar el software P-seint. Accede al link de descarga haciendo clic acá.
     ● El programa debe tener un rango de números para el juego(1 al 5)
     ● El programa debe tener una cantidad de intentos máximos(5)
     ● El programa debe generar un número aleatorio dentro del rango ingresado por el usuario.
@@ -56,6 +58,7 @@ int main()
     int cantidad_intentos;
     int *adivina_numero;
     int intento;
+    int numero_anterior;
 
     /* Reglas del juego*/
     cout << "\n### Comienzo del Juego ###\n\n";
@@ -149,21 +152,20 @@ int main()
 
     } while (cantidad_intentos < 0 || cantidad_intentos > 10);
     
-    /* Generamos el numero aleatoreo */
     int numero_aleatoreo = rand() % (rango_num_inferior - rango_num_superior +1) + rango_num_inferior;
-
-    /* Creamos el array */
     adivina_numero = new int [cantidad_intentos];
+    intento = cantidad_intentos;
 
-    cout << "\n### Inicio del Juego ###\n";
-    cout << "- A divine el numero entre '" << rango_num_inferior << "' y '" << rango_num_superior << "' \n\n";
+    cout << "\n### Inicio del Juego ###\n\n";
+    cout << "- A divine el numero entre '" << rango_num_inferior << "' y '" << rango_num_superior << "' \n";
 
-    for (int i = 0; i < cantidad_intentos ; i++){
-        intento = cantidad_intentos;
-
-        cout << "- Ingrese un numero: ";
+    for (int i = 0; i < cantidad_intentos ; i++)
+    {
+        cout << "\n- Ingrese un numero : ";
         cin >> adivina_numero[i];
         cout << "\n";
+
+        numero_anterior = adivina_numero[i];
 
         /* Control de ingreso */
         while (adivina_numero[i] < 0 && adivina_numero[i] < rango_num_inferior || adivina_numero[i] > rango_num_superior || adivina_numero[i] < rango_num_inferior)
@@ -189,8 +191,44 @@ int main()
         }
 
         /* Validamos acierto */
-        
-        intento =  intento -1;
+        if (adivina_numero[i] == numero_aleatoreo)
+        {
+            cout << "\n\n !!! Felicitaciones !!! usted adivino el numero aleatoreo '" << numero_aleatoreo << "' \n";
+            cout << "  Intento: '" << intento -1 << "' \n";
+            break;
+        }
+        else if (adivina_numero[i] < numero_aleatoreo)
+        {
+            cout << "- El numero que ingreso '" << adivina_numero[i] << "' es menor al numero aleatoreo\n";
+            cout << "  Usted tiene '" << intento -1 << "' restantes\n";
+        }
+        else if (adivina_numero[i] > numero_aleatoreo)
+        {
+            cout << "- El numero que ingreso '" << adivina_numero[i] << "' es mayor al numero aleatoreo\n";
+            cout << "  Usted tiene '" << intento -1 << "' restantes\n";
+        }
+
+        intento--;
+
+        if (intento == 0)
+        {
+            sort(adivina_numero, adivina_numero + cantidad_intentos);
+
+            cout << "\n- Usted ingreso los siguientes numeros: ";
+            for (int p = 0; p < cantidad_intentos; p++)
+            {
+                numero_anterior = adivina_numero[p];
+                cout << adivina_numero[p] << " ";
+            }
+            cout << "\n- El numero Random es: '" << numero_aleatoreo << "'";
+            cout << "\n- La tabla de multiplicar del numero aleatoreo '" << numero_aleatoreo << "' es: \n";
+            for (int i = 0; i < 11; i++)
+            {
+                int multiplica = (numero_aleatoreo * i);
+                cout << " '" << numero_aleatoreo << "' x" << " '" << i << "' = " << multiplica << "\n";
+            }
+            
+        }
     }
     
 
