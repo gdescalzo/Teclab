@@ -46,12 +46,15 @@ Te acaba de contratar una empresa para desarrollar un juego de adivinanzas de n√
 
 /* Cargamos las librerias*/
 #include <iostream>
-#include <random>
 #include <algorithm>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 int main()
 {
+    srand(time(NULL));
+
     /* Declaro las variables */
     int rango_num_inferior;
     int rango_num_superior;
@@ -200,12 +203,12 @@ int main()
         else if (adivina_numero[i] < numero_aleatoreo)
         {
             cout << "- El numero que ingreso '" << adivina_numero[i] << "' es menor al numero aleatoreo\n";
-            cout << "  Usted tiene '" << intento -1 << "' restantes\n";
+            cout << "  Usted tiene '" << intento -1 << "' intentos restantes\n";
         }
         else if (adivina_numero[i] > numero_aleatoreo)
         {
             cout << "- El numero que ingreso '" << adivina_numero[i] << "' es mayor al numero aleatoreo\n";
-            cout << "  Usted tiene '" << intento -1 << "' restantes\n";
+            cout << "  Usted tiene '" << intento - 1 << "' intentos restantes\n";
         }
 
         intento--;
