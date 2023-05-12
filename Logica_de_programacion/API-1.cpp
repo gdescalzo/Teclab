@@ -47,6 +47,7 @@ Consigna B
 /* Cargamos las librerias*/
 #include <iostream>
 #include <random>
+#include <algorithm>
 using namespace std;
 
 
@@ -59,26 +60,27 @@ int main(){
     int *adivina_numero;
     int intento;
     int intento_anterior;
+    int num_anterior;
 
-    cout << "Ingrese los rangos de numeros para el juego\n\n";
+    cout << "\n### Comienzo del Juego ###\n\n";
+    cout << "- Ingrese los rangos de numeros para el juego\n\n";
 
     do
     {
-        cout << "Ingrese rango inferior: ";
+        cout << " - Ingrese rango inferior: ";
         cin >> rango_numero_inf;
-        cout << "\n";
     } while (rango_numero_inf <= 0);
 
     do
     {
-        cout << "Ingrese rango superior: ";
+        cout << " - Ingrese rango superior: ";
         cin >> rango_numero_sup;
         cout << "\n";
     } while (rango_numero_sup <= rango_numero_inf);
 
     do
     {
-        cout << "Ingrese la cantidad de intentos maximos: ";
+        cout << " - Ingrese la cantidad de intentos maximos: ";
         cin >> cantidad_intentos;
         cout << "\n";
     } while (cantidad_intentos <= 0);
@@ -89,64 +91,81 @@ int main(){
 
     for (int i = 0; i < cantidad_intentos; i++)
     {
-        cout << "Adivine el numero random entre " << rango_numero_inf << " y " << rango_numero_sup << " dentro del rango: ";
+        cout << "### Adivine el numero random entre " << rango_numero_inf << " y " << rango_numero_sup << " dentro del rango ###\n\n";
 
         do
         {
+            cout << "Instrucciones:\n";
+            cout << " 1. No repita numeros.\n 2. No ingrese numeros inferiores al rango\n 3. No ingrese numeros superiores al rango\n\n";
+            cout << "\nPor favor ingrese un numero: ";
             cin >> adivina_numero[i];
             
             if (adivina_numero[i] < rango_numero_inf)
             {
-                cout << "- Usted ingreso un numero inferior al rango minimo '" << rango_numero_inf << "' por favor ingrese nuevamente el numero: ";
+                cout << "\n\n";
+                cout << "Instrucciones:\n";
+                cout << " 1. No repita numeros.\n 2. No ingrese numeros inferiores al rango\n 3. No ingrese numeros superiores al rango\n\n";
+                cout << "\n- Usted ingreso un numero inferior al rango minimo '" << rango_numero_inf << "' por favor ingrese nuevamente el numero: ";
                 cin >> adivina_numero[i];
             }
             else if (adivina_numero[i] > rango_numero_sup)
             {
-                cout << "- Usted ingreso un numero superior al rango maximo '" << rango_numero_sup << "' por favor ingrese nuevamente el numero: ";
+                cout << "\n\n";
+                cout << "Instrucciones:\n";
+                cout << " 1. No repita numeros.\n 2. No ingrese numeros inferiores al rango\n 3. No ingrese numeros superiores al rango\n\n";
+                cout << "\n- Usted ingreso un numero superior al rango maximo '" << rango_numero_sup << "' por favor ingrese nuevamente el numero: ";
                 cin >> adivina_numero[i];
             }
-            else if (intento_anterior == adivina_numero[i]){
-                cout << "- Usted ya ingreso este numero '" << intento_anterior << "' por favor ingrese otro numero diferente al anterior: ";
+            else if (intento_anterior == adivina_numero[i])
+            {
+                cout << "\n\n";
+                cout << "Instrucciones:\n";
+                cout << " 1. No repita numeros.\n 2. No ingrese numeros inferiores al rango\n 3. No ingrese numeros superiores al rango\n\n";
+                cout << "\n- Usted ya ingreso este numero '" << intento_anterior << "' por favor ingrese otro numero diferente al anterior: ";
                 cin >> adivina_numero[i];
             }
-            
-            
-            /* cout << "Adivine el numero random entre " << rango_numero_inf << " y " << rango_numero_sup << " dentro del rango: ";
-            cin >> adivina_numero[i]; */
+            else
+            {
+
+            }
+
         } while (adivina_numero[i] < rango_numero_inf || adivina_numero[i] > rango_numero_sup || intento_anterior == adivina_numero[i]);
 
         intento_anterior = adivina_numero[i];
 
         if (adivina_numero[i] == numero_random)
         {
-            cout << "Usted adivino el numero random: " << numero_random << "\n";
+            cout << "\n- Usted adivino el numero random: " << numero_random << "\n";
             break;
         }
         else if (adivina_numero[i] < numero_random)
         {
-            cout << "Usted no adivino el numero random.\n";
-            cout << "- El numero que ingreso '" << adivina_numero[i] << "' es menor que el numero random.\n";
-            cout << "- Le quedan " << intento - 1 << " intentos.\n\n";
+            cout << "\n- Usted no adivino el numero random.\n";
+            cout << " - El numero que ingreso '" << adivina_numero[i] << "' es menor que el numero random.\n";
+            cout << " - Le quedan " << intento - 1 << " intentos.\n\n";
         }
         else
         {
-            cout << "Usted no adivino el numero random.\n";
-            cout << "- El numero que ingreso '" << adivina_numero[i] << "' es mayor que el numero random.\n";
-            cout << "- Le quedan " << intento - 1 << " intentos.\n\n";
+            cout << "\n- Usted no adivino el numero random.\n";
+            cout << " - El numero que ingreso '" << adivina_numero[i] << "' es mayor que el numero random.\n";
+            cout << " - Le quedan " << intento - 1 << " intentos.\n\n";
         }
 
         intento = intento -1;
-        cout << "\n";
+
+        if (intento == 0){
+
+            sort(adivina_numero, adivina_numero + cantidad_intentos);
+
+            cout << "- Usted ingreso los siguientes numeros: ";
+            for (int p = 0; p < cantidad_intentos; p++)
+            {
+                num_anterior = adivina_numero[p];
+                cout << adivina_numero[p] << " ";
+            }
+            cout << "- El numero Random es: " <<  numero_random << "\n- Mejor suerte la proxima vez !!!\n\n### Fin del Juego ###\n";
+        }
     }
 
-    /* for (int i = 0; i < cantidad_intentos; i++)
-    {
-        cout << "El array tiene dentro los siguientes numeros " << adivina_numero[i] << "\n";
-    }
-    */
-    /*
-    int numero_random = rand() % (rango_numero_sup - rango_numero_inf + 1) + rango_numero_inf;
-    cout << "El numero random es: " << numero_random << "\n";
-   */
     return 0;
 }
