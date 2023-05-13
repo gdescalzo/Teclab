@@ -46,8 +46,9 @@ Consigna B
 
 /* Cargamos las librerias*/
 #include <iostream>
-#include <random>
+#include <cstdlib>
 #include <algorithm>
+#include <ctime>
 using namespace std;
 
 
@@ -61,6 +62,8 @@ int main(){
     int intento;
     int intento_anterior;
     int num_anterior;
+
+    srand(time(NULL));
 
     cout << "\n### Comienzo del Juego ###\n\n";
     cout << "- Ingrese los rangos de numeros para el juego\n\n";

@@ -213,6 +213,7 @@ int main()
 
         intento--;
 
+        /* Mostramos el contenido del array */
         if (intento == 0)
         {
             sort(adivina_numero, adivina_numero + cantidad_intentos);
@@ -229,12 +230,8 @@ int main()
             {
                 int multiplica = (numero_aleatoreo * i);
                 cout << " '" << numero_aleatoreo << "' x" << " '" << i << "' = " << multiplica << "\n";
-            }
-            
+            } 
         }
     }
-    
-
-    /* cout << "\n\n## El numero aleatoreo es: '" << numero_aleatoreo << "' ##"; */
     return 0;
 }
