@@ -43,20 +43,7 @@ using namespace std;
 
 int numero_repetido(int numero_ingresado, int intentos, int adivina_numero[]);
 
-int main()
-{
-    srand(time(NULL));
-    
-    // Declaramos las variables
-    int num_rango_inferior;
-    int num_rango_superior;
-    int cantidad_intentos;
-    int *adivina_numero;
-    int intentos = 0;
-    int numero_anterior;
-    int numero_ingresado;
-
-
+void mostrar_reglas(){
     /* Reglas del juego*/
     cout << "\n### Comienzo del Juego ###\n\n";
 
@@ -75,6 +62,23 @@ int main()
     cout << " 1. No ingrese numeros menores al rango inferior\n";
     cout << " 2. No ingrese numeros superiores al rango superior\n";
     cout << " 3. No repita numeros.\n\n";
+}
+
+int main()
+{
+    srand(time(NULL));
+    
+    // Declaramos las variables
+    int num_rango_inferior;
+    int num_rango_superior;
+    int cantidad_intentos;
+    int *adivina_numero;
+    int intentos = 0;
+    int numero_anterior;
+    int numero_ingresado;
+
+    /* Reglas del juego*/
+    mostrar_reglas();
 
     // Configuracion del Juego
     cout << "## Configuracion del juego ##\n\n";
@@ -151,7 +155,7 @@ int main()
     int intentos_restantes = cantidad_intentos;
 
     cout << "\n### Inicio del Juego ###\n\n";
-    cout << "- A divine el numero entre '" << num_rango_inferior << "' y '" << num_rango_superior << "' \n";
+    cout << "- Adivine el numero entre '" << num_rango_inferior << "' y '" << num_rango_superior << "' \n";
 
     for (int i = 0; i < cantidad_intentos; i++)
     {
