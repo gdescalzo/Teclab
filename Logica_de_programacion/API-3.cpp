@@ -41,11 +41,10 @@ Consigna
 #include <algorithm>
 using namespace std;
 
-int numero_repetido(int numeros_ingresados[], int intento, int numero_anterior);
+int numero_repetido(int numero_ingresado, int intentos, int adivina_numero[]);
 
 int main()
 {
-
     srand(time(NULL));
     
     // Declaramos las variables
@@ -53,9 +52,10 @@ int main()
     int num_rango_superior;
     int cantidad_intentos;
     int *adivina_numero;
-    int intento;
+    int intentos = 0;
     int numero_anterior;
-    int repetido;
+    int numero_ingresado;
+
 
     /* Reglas del juego*/
     cout << "\n### Comienzo del Juego ###\n\n";
@@ -82,7 +82,7 @@ int main()
     // Solicitamos Rango Inferior
     do
     {
-        cout << "- Por favor ingrese un numero: ";
+        cout << "\n - Ingrese un numero, para el rango Inferior: ";
         cin >> num_rango_inferior;
 
         if (num_rango_inferior < 0)
@@ -148,7 +148,7 @@ int main()
 
     int numero_aleatoreo = rand() % (num_rango_inferior - num_rango_superior + 1) + num_rango_inferior;
     adivina_numero = new int[cantidad_intentos];
-    intento = cantidad_intentos;
+    int intentos_restantes = cantidad_intentos;
 
     cout << "\n### Inicio del Juego ###\n\n";
     cout << "- A divine el numero entre '" << num_rango_inferior << "' y '" << num_rango_superior << "' \n";
@@ -157,13 +157,11 @@ int main()
     {
         cout << "\n- Ingrese un numero : ";
         cin >> adivina_numero[i];
+        numero_ingresado = adivina_numero[i];
         cout << "\n";
 
-        numero_anterior = adivina_numero[i];
-        repetido = numero_repetido(adivina_numero, i, numero_anterior);
-
         /* Control de ingreso */
-        while (adivina_numero[i] < 0 && adivina_numero[i] < num_rango_inferior || adivina_numero[i] > num_rango_superior || adivina_numero[i] < num_rango_inferior)
+        while (adivina_numero[i] < 0 && adivina_numero[i] < num_rango_inferior || adivina_numero[i] > num_rango_superior || adivina_numero[i] < num_rango_inferior || numero_repetido(numero_ingresado, intentos, adivina_numero) == 1)
         {
             if (adivina_numero[i] < 0 && adivina_numero[i] < num_rango_inferior)
             {
@@ -175,45 +173,50 @@ int main()
             {
                 cout << "- Usted ingreso un numero inferior \n  al numero de rango inferior '" << num_rango_inferior << "' \n  por favor ingrese numeros superiores al rango inferior: ";
                 cin >> adivina_numero[i];
+                numero_ingresado = adivina_numero[i];
                 cout << "\n";
             }
             else if (adivina_numero[i] > num_rango_superior)
             {
                 cout << "- Usted ingreso un numero superior \n  al numero de rango superior '" << num_rango_superior << "' \n  por favor ingrese numeros inferiores al rango supoerior: ";
                 cin >> adivina_numero[i];
+                numero_ingresado = adivina_numero[i];
                 cout << "\n";
             }
-            else if (repetido == 1)
+            else if (numero_repetido(numero_ingresado, intentos, adivina_numero) == 1)
             {
-                cout << "- Usted ya ingreso este numero \n por favor ingrese numeros diferentes: ";
+                cout << "- Usted ya ingreso este numero superior \n  por favor ingrese numeros diferentes: ";
                 cin >> adivina_numero[i];
+                numero_ingresado = adivina_numero[i];
                 cout << "\n";
             }
-            
         }
 
         /* Validamos acierto */
         if (adivina_numero[i] == numero_aleatoreo)
         {
             cout << "\n\n !!! Felicitaciones !!! usted adivino el numero aleatoreo '" << numero_aleatoreo << "' \n";
-            cout << "  Intento: '" << intento - 1 << "' \n";
+            cout << "  Intento: '" << intentos_restantes - 1 << "' \n";
+            intentos++;
             break;
         }
         else if (adivina_numero[i] < numero_aleatoreo)
         {
             cout << "- El numero que ingreso '" << adivina_numero[i] << "' es menor al numero aleatoreo\n";
-            cout << "  Usted tiene '" << intento - 1 << "' intentos restantes\n";
+            cout << "  Usted tiene '" << intentos_restantes - 1 << "' intentos restantes\n";
+            intentos++;
         }
         else if (adivina_numero[i] > numero_aleatoreo)
         {
             cout << "- El numero que ingreso '" << adivina_numero[i] << "' es mayor al numero aleatoreo\n";
-            cout << "  Usted tiene '" << intento - 1 << "' intentos restantes\n";
+            cout << "  Usted tiene '" << intentos_restantes - 1 << "' intentos restantes\n";
+            intentos++;
         }
 
-        intento--;
+        intentos_restantes--;
 
         /* Mostramos el contenido del array */
-        if (intento == 0)
+        if (intentos_restantes == 0)
         {
             sort(adivina_numero, adivina_numero + cantidad_intentos);
 
@@ -224,29 +227,23 @@ int main()
                 cout << adivina_numero[p] << " ";
             }
             cout << "\n- El numero Random es: '" << numero_aleatoreo << "'";
-            cout << "\n- La tabla de multiplicar del numero aleatoreo '" << numero_aleatoreo << "' es: \n";
-            for (int i = 0; i < 11; i++)
-            {
-                int multiplica = (numero_aleatoreo * i);
-                cout << " '" << numero_aleatoreo << "' x"
-                     << " '" << i << "' = " << multiplica << "\n";
-            }
         }
     }
     return 0;
 }
 
-int numero_repetido(int numeros_ingresados[], int intento, int numero_anterior){
-    int coincide;
+int numero_repetido(int numero_ingresado, int intentos, int adivina_numero[])
+{
+    int coincide = 0;
 
-    for (int i = 0; i < intento; i++){
-        if(intento == 1){
-            coincide = 0;
-            return coincide;
-        }
-        else if(intento < 1 && numeros_ingresados[i] == numero_anterior){
+    for (int i = 0; i < intentos; i++)
+    {
+        if (intentos > 0 && numero_ingresado == adivina_numero[i])
+        {
             coincide = 1;
-            return coincide;
+            break;
         }
     }
+
+    return coincide;
 }
