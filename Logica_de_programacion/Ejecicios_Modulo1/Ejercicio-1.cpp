@@ -1,4 +1,4 @@
-/* 
+/*
 Ejercicio 1
 
     Escribir en lenguaje C un programa que convierte pesos argentinos en dólares.
@@ -7,6 +7,8 @@ Ejercicio 1
     3. Muestre por pantalla el resultad
 
     pesos / dolares
+
+    Para actualizar algun dia: https://www.dolarsi.com/api/api.php?type=valoresprincipales quiero agregarle que consulte de forma automatica la cotizacion.
 
 */
 
