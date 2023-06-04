@@ -26,12 +26,12 @@ int main()
         cout << "Ingrese el numero del mes: ";
         cin >> mes;
 
-        if (mes <= 1 || mes > 12)
+        if (mes < 1 || mes > 12)
         {
-            cout << "\n Usted ingreso un numero de mes menor a cero,\n por favor ingrese un numero de mes valido\n Ingrese nuevamente el numer del mes: ";
+            cout << "\n Usted ingreso un numero de mes menor a uno o mayor a doce,\n por favor ingrese un numero de mes valido\n Ingrese nuevamente el numer del mes: ";
             cin >> mes;
         }
-    } while (mes <= 1 || mes > 12);
+    } while (mes < 1 || mes > 12);
 
     switch (mes)
     {
