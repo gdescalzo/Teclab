@@ -19,7 +19,7 @@ int main()
     // Declaramos las variables
     float radio;
     float perimetro;
-    float pi = 3.14;
+    float pi = 3.14159;
 
     cout << "\n\n### Calculador de perimetro de una circunferencia ###\n\n";
 
@@ -36,4 +36,8 @@ int main()
         }
     } while (radio < 0);
     
+    // Calculamos el perimetro de la circunferencia
+    perimetro = 2 *  pi * radio;
+
+    cout << "\n El perimetro es: " << perimetro;
 }
