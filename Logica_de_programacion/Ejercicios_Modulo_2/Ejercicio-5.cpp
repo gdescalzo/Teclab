@@ -17,8 +17,30 @@ int main()
 {
     // Declaramos las variables
     int numeros_naturales[10]{1,2,3,4,5,6,7,8,9,10};
-    int cuadrado;
-    int resultado;
+    int* cuadrado = new int[10];
+    
+    cout << "\n\n### Calculador de los primeros diez numeros naturales ###\n\n";
+
+    for(int i = 0; i < 10 ; i++)
+    {
+        cuadrado[i] = numeros_naturales[i] * numeros_naturales[i];
+    }
+
+    for (int p = 0; p < 10; p++)
+    {
+        cout << " El cuadrado del numero: '" << numeros_naturales[p] << "' es: '" << cuadrado[p] << "'\n";        
+    }
+
+    cout << "\nLa cantidad de cuadrados mayores a cincuenta son: \n\n";
+    
+    for (int j = 0; j < 10; j++)
+    {
+        if (cuadrado[j] > 50)
+        {
+            cout << " El cuadrado del numero: '" << numeros_naturales[j] << "' es: " << cuadrado[j] << "' y es mayor a 50\n";
+        }
+        
+    }
 
     return 0;
 }
