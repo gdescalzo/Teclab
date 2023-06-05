@@ -31,7 +31,7 @@ int main()
     cout << "\n";
 
     // Creamos el array de alumnos
-    float *alumnos = new int[cantidad_alumnos];
+    float *alumnos = new float[cantidad_alumnos];
 
     // Cargamos las notas en el array
     for (int i = 1; i < cantidad_alumnos +1; i++)
