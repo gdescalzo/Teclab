@@ -32,3 +32,11 @@
 2. Tarea (Ejercicios_Modulo_3)
 
 </details>
+
+<details>
+<summary>Modulo 4</summary>
+
+1. Trabajo practico (API-4.cpp)
+2. Tarea (Ejercicios_Modulo_4)
+
+</details>
