@@ -18,28 +18,37 @@ int main()
 {
     // Declaro las variables
     string palabra;
-    char opcion;
+    
 
     cout << "\n\n### Detector de palabras palindromes ###\n\n";
 
-    do
-    {
-        cout << "Ingrese una palabra: ";
-        cin >> palabra;
+    cout << "Ingrese una palabra: ";
+    cin >> palabra;
 
-        cout << "Desea ingresar otra palabra ? (s/n)";
-        cin >> opcion;
+    cout << "\nImprimimos en pantalla al DERECHO la palabra ingresada\n";
 
-        // Validamos ingreso de usuario (Opcion s/n)
-        while (opcion != 's' || opcion != 'S' || opcion != 'n' || opcion != 'N')
-        {
-            cout << "\nUsted ingreso un caracter no valido,\npor favor ingrese 's' o 'S' para (si) y 'n' o 'N' para no,\nDesea ingresar otra palabra ? (s/n)";
-            cin >> opcion;
-        }
-        
-    } while (opcion == 's' || opcion == 'S');
     
+
+    for (int i = 0; i < palabra.length(); i++)
+    {
+        cout << palabra[i] << " ";
+
+    }
+
+    cout << "\nImprimimos en pantalla al REVEZ la palabra ingresada\n";
+
+    char *al_revez = new char[palabra.length()];
+
+    for (int p = palabra.length() - 1; p >= 0; p--)
+    {
+        cout << palabra[p] << " ";
+        al_revez[p] = palabra[p];
+    }
+
+    int longitud = sizeof(al_revez[0]) / sizeof(al_revez);
+    string palabra_al_revez(al_revez, longitud);
+
+    cout << "\n******" << palabra_al_revez ;
 
     return 0;
 }
-
