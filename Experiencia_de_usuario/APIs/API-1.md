@@ -1,8 +1,9 @@
 # Actividad 1
 
-## Situacion
+## Situación
 
 > Fuiste contratado por el equipo de Alternativa Teatral para solucionar los problemas de la pagina web. Se te pide que crees el MVP navegable de su web.
+
 
 ## Requerimientos
 
@@ -25,28 +26,26 @@
 
 > Los objetivos de negocio identificados en la mencionada web son:
 
-1. Centralizar en la web varias ofertas teatrales de diferentes establecimientos, ya que a simple vista al recorrer la web pueden identificarse mas de un establecimiento teatral publicando en el mismo, por nombrar alguno de ellos: "Teatro Ciego", "Museo Larreta", "Multiescena CPM". Por tanto se entiende que dicha web no solo provee servicios a usuarios finales. (_las personas que estaran asistiendo a la obra teatral_).
+1. Centralizar en la web varias ofertas teatrales de diferentes establecimientos, ya que al recorrer la web se pueden identificar varios establecimientos teatrales que publican en ella. Algunos ejemplos de estos establecimientos son: "Teatro Ciego", "Museo Larreta" y "Multiescena CPM". Por lo tanto, se entiende que esta web no solo provee servicios a los usuarios finales (las personas que asistirán a las obras teatrales).
 
-2. Proveer servicios a los establecimientos teatrales los cuales publican y facturan mediante esta pagina.
+2. Proveer servicios a los establecimientos teatrales que publican y facturan a través de esta página.
 
-En resumen el objetivo de negocio es:  que los usuario finales que asistiran a un evento podran comprar entradas y los establecimientos podran venderlas, Entendiendo (hipoteticamente) que el sitio (www.alternativateatral.com) obtendria algun redito de estas operaciones.
+> En resumen, el objetivo de negocio es que los usuarios finales que asistan a un evento puedan comprar entradas, y los establecimientos puedan venderlas. Se entiende que el sitio web (<www.alternativateatral.com>) obtendría algún beneficio económico de estas operaciones.
 
 ## Problemas de usabilidad
 
-> A continuacion se detallaran los problemas de usabilidad aplicando el metodo de "Empatia" correspodiente a la metodologia "Design Thinking" si bien no puedo consultarle a los usuarios finales debido a que es un ejercicio practico y no la realidad, si puedo empatizar con el resto de las personas poniendome en el lugar de un posible consumidor, con el fin de validar si los objetivos de negocio cuentan con puntos de fuga en el flujo de procesos.
+> A continuación se detallarán los problemas de usabilidad aplicando el método de "Empatía" correspondiente a la metodología "Design Thinking". Aunque no puedo consultar a los usuarios finales debido a que esto es un ejercicio práctico y no la realidad, puedo empatizar con el resto de las personas poniéndome en el lugar de un posible consumidor, con el fin de validar si los objetivos de negocio presentan puntos de fuga en el flujo de procesos.
 
-0. Presentacion de la pagina: no son las obras de teatros que ofrece sino que menciona otra sala que se va a abrir, esto es un problema para el usuario final ya que lo primero que ve es algo que dice proximamente y no brinda informacion de la oferta, es un lugar central desaprobechado. Si en tal caso se quisiera informar que proximamente habra algo, podria crearse un banner que al momento de ingresar a la pagina se despliegue informando esto mismo.
+1. Presentación de la página: en la página principal, se menciona una sala que se abrirá próximamente en lugar de mostrar las obras de teatro disponibles. Esto es un problema para el usuario final, ya que lo primero que ve es algo que indica "próximamente" y no brinda información sobre la oferta actual. Este espacio central no está aprovechado adecuadamente. En caso de que se desee informar sobre eventos futuros, se podría crear un banner que se despliegue al ingresar a la página, proporcionando esa información.
 
-1. Descripcion de la obra: al ingresar desde la "Home page" a la descripcion de una obra en particular (presionando sobre el titulo, lo cual no es muy intuitivo, podria agregarse un boton que diga "ver mas") nos abre en una nueva ventana (lo cual es engorroso para el usuario ya que ocupa mas de una ventana para la misma pagina y no permite volver atras, entre otros inconveninetes que puede generar, por ejemplo si lo vemos desde un celuar abrira un nuevo tab el cual tendremos que cerrar para ir al home nuevamente, desde un Desktop o Laptop es mas visible para un usuario los tabs del navegador, pero desde un smartphone es mas complicado identificar en que tab esta cada pagina) esto puede ser facilmente solucionable cambiando el condigo para que el link tenga la propiedad de apertura "_self".
+2. Descripción de la obra: al ingresar desde la página principal a la descripción de una obra en particular (al hacer clic en el título, lo cual no es muy intuitivo), esta se abre en una nueva ventana, lo cual resulta engorroso para el usuario, ya que implica tener más de una ventana abierta para la misma página y no permite volver atrás, entre otros inconvenientes que puede generar. Por ejemplo, si se accede desde un celular, se abrirá una nueva pestaña que luego habrá que cerrar para volver a la página principal. En dispositivos de escritorio o portátiles es más visible para el usuario identificar las pestañas del navegador, pero desde un smartphone es más complicado identificar en qué pestaña se encuentra cada página. Esto se puede solucionar fácilmente modificando el código para que el enlace tenga la propiedad de apertura "_self".
 
-2. Formulario de compra: aqui interviene un punto importante, la seguridad. El formulario de compra no cuenta con un validador captcha con lo cual estaria teniendo una brecha de seguridad al momento de completar los datos de pago ya que, al dispensar de un captcha no permite a diferentes robots (automatizaciones, scripts) y personas.
-Otro problema es que no esta presente el boton volver al home (ya que abre la pagina del formulario de compra en una nueva ventana).
+3. Formulario de compra: aquí se plantea un punto importante, la seguridad. El formulario de compra no cuenta con un validador CAPTCHA, lo que representa una brecha de seguridad al momento de completar los datos de pago. Al no disponer de un CAPTCHA, el formulario permite el acceso a robots, automatizaciones y scripts, así como a personas. Otro problema es que no se incluye un botón para volver a la página principal, ya que el formulario de compra se abre en una nueva ventana.
 
-3. Acceso a usuarios: El icono del cuadrante superior derecho (acceso a usuarios), no esta identificado en el header de la pagina, normalmente otros sitios tienen leyendas alado del pictograma tales como "Iniciar session" , "Login", entre otros, tal vez para cierto rango de edades sea intuitivo, pero para rango de edades avanzadas tal vez no lo sea tanto. Esto seria un problema ya que la pagina al no ser especifica en su comunicacion limitaria el publico a un rango de edad al no ser especifica y dificil de navergar.
+4. Acceso a usuarios: el icono en el cuadrante superior derecho (acceso a usuarios) no está identificado en el encabezado de la página. Normalmente, otros sitios tienen leyendas junto al pictograma, como "Iniciar sesión" o "Login", entre otros. Aunque pueda ser intuitivo para ciertos rangos de edad, puede no serlo tanto para personas mayores. Esto representa un problema, ya que la página, al no ser específica en su comunicación, limita el público a un rango de edad y dificulta la navegación.
 
-4. Menu: Algo similar a lo mencionado en el punto 3, ocurre con el menu, ayudaria a la navegacion del sitio que alado del pictograma haya una leyenda que diga "menu".
+5. Menú: algo similar ocurre con el menú, mencionado en el punto 3. Sería útil para la navegación del sitio que junto al pictograma hubiera una leyenda que dijera "menú".
 
-5. Sitio No seguro: alado de la URL puede verse en la mayoria de los navegadores si el sitio es seguro o no, este sitio en particular no tiene un certificado de seguridad asociado al mismo por ende la direccion del sitio es http cuando deberia ser https para garantizar que las transacciones entre los usuarios del sitio esten encriptadas.
+6. Sitio no seguro: al lado de la URL, la mayoría de los navegadores muestran si el sitio es seguro o no. Este sitio en particular no tiene un certificado de seguridad asociado, por lo que la dirección del sitio es http en lugar de https. Esto implica que las transacciones entre los usuarios del sitio no están encriptadas y representa un riesgo para la seguridad.
 
-6. El tiempo de respuesta de la pagina al buscar algo es muy alto.
-
+7. El tiempo de respuesta de la página al buscar algo es muy alto.
