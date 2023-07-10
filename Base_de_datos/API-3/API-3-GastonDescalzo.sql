@@ -177,3 +177,26 @@ SELECT COUNT(id_lectores) FROM lectoresLibros WHERE id_lectores = 2;
 SELECT COUNT(id_lectores) FROM lectoresLibros WHERE id_lectores = 3;
 -- Lector 9
 SELECT COUNT(id_lectores) FROM lectoresLibros WHERE id_lectores = 9;
+
+-- Con uno de los lectores al que cargaste 5 libros, simula que devolvio uno de ellos
+DELETE FROM lectoresLibros WHERE id_lectores = 1 AND id_libros = 2;
+
+-- Obtene el promedio de edad de los lectores,
+SELECT AVG (date_part('YEAR', AGE(nacimiento))) AS promedioEdad From Lectores;
+
+-- Obtene lector con mas años.
+SELECT MAX (date_part('YEAR', AGE(nacimiento))) AS mayorEdad From Lectores;
+
+-- Obtene lector mas joven
+SELECT MIN(date_part('YEAR', AGE(nacimiento))) AS menorEdad FROM Lectores;
+
+CREATE OR REPLACE VIEW libros_prestados
+AS
+SELECT Lectores.apellido, Lectores.nombre, libros.nombre as nombreLibro, libros.editorial, libros.isbn
+FROM Lectores
+INNER JOIN lectoresLibros ON lectoresLibros.id_lectores = Lectores.id
+INNER JOIN libros ON lectoresLibros.id_libros = libros.id
+
+drop view libros_prestados;
+
+SELECT * FROM libros_prestados WHERE nombre = 'Pedro' AND apellido = 'Alonso';
