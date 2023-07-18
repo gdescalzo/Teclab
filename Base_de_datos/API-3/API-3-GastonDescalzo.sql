@@ -200,3 +200,6 @@ INNER JOIN libros ON lectoresLibros.id_libros = libros.id
 drop view libros_prestados;
 
 SELECT * FROM libros_prestados WHERE nombre = 'Pedro' AND apellido = 'Alonso';
+
+
+
