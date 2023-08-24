@@ -12,7 +12,7 @@
 
 #### Empresa de Catering S.A.
 
-> Trabajas para la consultra "Teclab Servicios Informaticos" y la empresa Cartering S.A. te convoca para mejorar sus procesos productivos.
+> Trabajas para la consultora "Teclab Servicios Informaticos" y la empresa Cartering S.A. te convoca para mejorar sus procesos productivos.
 En este sentido, las priordades de Catering S.A. Son centrarse primoridalmente en las actividades que agreguen valor a sus clientes y elimienen todas aquellas actividades que generen gastos innecesarios para la organizacion o que encarezcan el costo de sus servicios.
 
 > Asimismo, la empresa ha identificado que, dados los reclamos por demoras en la entrega del producto final, han reducido en calidad, por lo que tambien solicitan que presentes una propuesta de servicios que los ayude a mejorar la performance de sus actividades y la calidad de los productos que desarrollan.
