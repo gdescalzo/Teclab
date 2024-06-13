@@ -26,3 +26,12 @@ span {
 #productos .gris{
     background-color: #eee;
 }
+
+.btn-agregar {
+    background-color: #2080 ;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid #098ddf;
+    margin: 20px
+}

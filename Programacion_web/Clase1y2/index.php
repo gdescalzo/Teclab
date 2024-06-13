@@ -47,6 +47,7 @@
                         </tr>    
                     </tbody>
                 </table>
+                <label id="label" style="display: none">Texto de prueba</label>
             </center>
         </section>
     </body>
