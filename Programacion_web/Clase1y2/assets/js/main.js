@@ -38,6 +38,15 @@ switch(caracter){
 
 var contador = 1;
 while  (contador <=5){
-    console.log("en el cliclo While: " + contador)
+    console.log("en el cliclo While: " + contador);
     contador ++;
 }
+
+$(document).ready(function(){
+    var texto = document.getElementById("boton_agregar").innerHTML
+    console.log(texto);
+    texto = $("#boton_agregar").html();
+    console.log(texto);
+
+    $(".btn-agregar").on("click", agregar_producto);
+});
