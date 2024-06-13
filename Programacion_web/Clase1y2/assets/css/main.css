@@ -1,0 +1,28 @@
+span {
+    color: blue;
+    font-weight: ;
+}
+
+#productos th: first-child{
+    width: 50px;
+}
+
+#productos tbody tr td {
+    text-align: center;
+}
+
+#productos tr {
+    height: 40px;
+}
+
+#productos thead th {
+    border-top: 1 px solid #333;
+}
+
+#productos tbody tr{
+    border-top: 1px solid #ddd;
+}
+
+#productos .gris{
+    background-color: #eee;
+}
