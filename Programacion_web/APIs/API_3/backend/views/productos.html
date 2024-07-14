@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Agregar Producto</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/css/estilos.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Agregar Producto</h1>
+        <form action="../productos.php" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <label for="descripcion">Descripción:</label>
+            <input type="text" id="descripcion" name="descripcion">
+            <label for="categoria_id">Categoría:</label>
+            <input type="number" id="categoria_id" name="categoria_id" required>
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
+</body>
+
+</html>
